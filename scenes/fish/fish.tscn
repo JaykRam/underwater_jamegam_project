@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://cmur5eyon7yco"]
+
+[ext_resource type="Script" uid="uid://cq7ms22iuwdcx" path="res://scripts/fish/fish.gd" id="1_q28ix"]
+[ext_resource type="Texture2D" uid="uid://ceofs42qwqoo3" path="res://assets/models/image-2-1024x256.png" id="2_0vs6l"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_q28ix"]
+radius = 72.0
+height = 512.0
+
+[node name="Fish" type="CharacterBody2D"]
+script = ExtResource("1_q28ix")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_0vs6l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-88, 16)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_q28ix")
+
+[node name="DirectionTimer" type="Timer" parent="."]
+wait_time = 1.5
+autostart = true
+
+[connection signal="timeout" from="DirectionTimer" to="." method="_on_direction_timer_timeout"]
