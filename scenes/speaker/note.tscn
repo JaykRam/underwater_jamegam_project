@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://b3lmbb51f4rmc"]
+
+[ext_resource type="Script" uid="uid://28salyqenm1c" path="res://scripts/speaker/note.gd" id="1_6hf8c"]
+[ext_resource type="Texture2D" uid="uid://f1bmv0agtmn" path="res://icon.svg" id="1_vlsok"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6hf8c"]
+radius = 32.0
+
+[node name="Note" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_6hf8c")
+
+[node name="CharacterBody2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_vlsok")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_6hf8c")

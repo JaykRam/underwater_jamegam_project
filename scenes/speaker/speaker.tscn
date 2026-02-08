@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://bnog8hv3aljgp"]
+
+[ext_resource type="Script" uid="uid://dw0i6jkpa58vt" path="res://scripts/speaker/speaker.gd" id="1_nd2h6"]
+[ext_resource type="Texture2D" uid="uid://dy72j70k7thas" path="res://assets/models/Speaker_Art.png" id="2_7brfr"]
+[ext_resource type="PackedScene" uid="uid://b3lmbb51f4rmc" path="res://scenes/speaker/note.tscn" id="2_jn2e4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7brfr"]
+size = Vector2(20, 15.6667)
+
+[node name="Speaker" type="Node2D"]
+script = ExtResource("1_nd2h6")
+note_scene = ExtResource("2_jn2e4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_7brfr")
+
+[node name="Cooldown Timer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="Area2D" type="Area2D" parent="."]
+scale = Vector2(0.3, 0.3)
+collision_layer = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -10.8333)
+scale = Vector2(17, 15)
+shape = SubResource("RectangleShape2D_7brfr")
+
+[node name="Note Spawn" type="Marker2D" parent="."]
+position = Vector2(0, 48)
+
+[connection signal="timeout" from="Cooldown Timer" to="." method="_on_cooldown_timer_timeout"]
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]

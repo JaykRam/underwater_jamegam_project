@@ -10,6 +10,9 @@ var move_direction := Vector2.ZERO
 
 #Functions
 
+func _ready():
+	pick_new_direction()
+
 func pick_new_direction():
 	move_direction = Vector2(
 		randf_range(-1,1),
