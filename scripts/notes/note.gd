@@ -18,4 +18,6 @@ func _physics_process(delta):
 				queue_free()
 		
 		elif collider.is_in_group("fish"):
+			GameManager.add_xp(power)
+			print("HIT")
 			queue_free()

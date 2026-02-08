@@ -28,8 +28,7 @@ position = Vector2(-128, -48)
 
 [node name="Fish" parent="GameSpace/RIGHT_UI/Aquarium" instance=ExtResource("1_sl2e5")]
 z_index = 5
-position = Vector2(956.359, 186.589)
-speed = 0.0
+position = Vector2(956.359, 370.589)
 min_bounds = Vector2(814, 210)
 max_bounds = Vector2(1114, 510)
 
